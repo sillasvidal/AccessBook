@@ -57,3 +57,11 @@ mobile/*.jsbundle
 
 # CocoaPods
 mobile/ios/Pods/
+
+
+backend/.idea/
+backend/.vscode/
+backend/node_modules/
+backend/build/
+backend/tmp/
+backend/temp/
