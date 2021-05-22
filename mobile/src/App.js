@@ -64,6 +64,13 @@ const App = () => {
 
   console.log(rate)
 
+  function speak() {
+    Speech.speak('Oi, teste', {
+      language: 'pt-BR',
+      rate: rate
+    });
+  }
+
   const rateSum = () => {
     if (rate<1) setRate(rate + 0.1)
   }
@@ -76,6 +83,11 @@ const App = () => {
     <SafeAreaView style={styles.container}>
         
       <Image source={logoImg} />
+
+      <Button
+        title="teste"
+        onPress={speak}
+      />
 
       <TouchableOpacity
         style={styles.buttonSearchContainer}
@@ -124,7 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#4db592',
     width: 350,
     height: 350,
-    borderRadius: 175
+    borderRadius: 175,
   },
   textButtonSearch: {
     color: '#F6FBF7',
