@@ -30,8 +30,8 @@ class BooksRepository implements IBooksRepository {
     const findBook = await this.ormRepository.findOne({
       relations: ['library'],
       where: {
-        name: Like(`%${name}%`) || Like(`${name}%`) || Like(`%${name}`) || name
-      },
+        name: Like(`%${name}%`)
+      }
     });
 
     return findBook;

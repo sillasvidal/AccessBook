@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   Image,
@@ -64,12 +64,6 @@ const App = () => {
 
   console.log(rate)
 
-  function speak() {
-    Speech.speak('Oi, teste', {
-      language: 'pt-BR',
-      rate: rate
-    });
-  }
 
   const rateSum = () => {
     if (rate<1) setRate(rate + 0.1)
@@ -84,17 +78,20 @@ const App = () => {
         
       <Image source={logoImg} />
 
-      <Button
+      {/* <Button 
         title="teste"
-        onPress={speak}
-      />
+        onPress={() => Speech.speak(book, {
+          language: 'pt-BR',
+          rate: rate
+        })}
+      /> */}
 
       <TouchableOpacity
         style={styles.buttonSearchContainer}
         onPress={() => Voice.start('pt-BR')} 
       >
         <Icon name="search" size={70} color="#F6FBF7" />
-        <Text style={styles.textButtonSearch}>{ text ? text : 'Buscar Livro'}</Text>
+        <Text style={styles.textButtonSearch}>Buscar Livro</Text>
       </TouchableOpacity>
 
 
@@ -137,6 +134,13 @@ const styles = StyleSheet.create({
     width: 350,
     height: 350,
     borderRadius: 175,
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.41,
+    shadowRadius: 9.11,
+    elevation: 14,
   },
   textButtonSearch: {
     color: '#F6FBF7',

@@ -29,7 +29,7 @@ class FindBookByNameService {
       return `O livro mencionado não foi encontrado`;
     }
 
-    return `O livro ${book.name} está disponível na biblioteca ${book.library.name}`;
+    return `O livro ${book.name} está disponível na biblioteca ${book.library.name}, localizada na ${book.library.street}, no ${book.library.neighborhood}, número ${book.library.number}.`;
 
   }
 }
