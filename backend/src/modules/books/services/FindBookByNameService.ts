@@ -9,6 +9,10 @@ interface IRequest {
   name: string;
 }
 
+interface IResponse {
+  book: Book | string;
+}
+
 @injectable()
 class FindBookByNameService {
   constructor(
@@ -16,16 +20,17 @@ class FindBookByNameService {
     private booksRepository: IBooksRepository,
   ) { }
 
-  public async execute({ name }: IRequest): Promise<Book> {
-    const checkBookExists = await this.booksRepository.findByName(
-      name,
+  public async execute({ name }: IRequest): Promise<Book | string> {
+    const book = await this.booksRepository.findByName(
+      name,  
     );
 
-    if (!checkBookExists) {
-      throw new AppError('Book not found');
+    if(!book) {
+      return `O livro mencionado não foi encontrado`;
     }
 
-    return checkBookExists;
+    return `O livro ${book.name} está disponível na biblioteca ${book.library.name}`;
+
   }
 }
 
