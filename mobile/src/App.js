@@ -76,7 +76,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
         
-      <Image source={logoImg} />
+      <Image source={logoImg} style={styles.logoImage} />
 
       {/* <Button 
         title="teste"
@@ -125,6 +125,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#F6FBF7',
     paddingTop: 50
+  },
+  logoImage: {
+    width: 250,
+    height: 35
   },
   buttonSearchContainer: {
     display: 'flex',
